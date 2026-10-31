@@ -7,25 +7,29 @@ import java.util.UUID;
 @Table(name = "device")
 public class Device {
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private String hostname;
 
     private String model;
-
     @Column(unique = true)
     private String ipAddress;
 
     private String deviceType;
 
-    public Device() {}
+    public Device() {
+
+    }
 
     public UUID getId() { return id; }
+
     public void setId(UUID id) { this.id = id; }
     public String getHostname() { return hostname; }
+    
     public void setHostname(String hostname) { this.hostname = hostname; }
+    
     public String getModel() { return model; }
     public void setModel(String model) { this.model = model; }
     public String getIpAddress() { return ipAddress; }

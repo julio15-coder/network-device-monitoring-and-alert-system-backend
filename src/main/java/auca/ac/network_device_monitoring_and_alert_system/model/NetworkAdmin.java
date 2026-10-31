@@ -24,6 +24,7 @@ public class NetworkAdmin {
     private Zone zone;
 
     @ManyToMany
+    
     @JoinTable(
             name = "network_admin_expertise",
             joinColumns = @JoinColumn(name = "network_admin_id"),
@@ -39,10 +40,12 @@ public class NetworkAdmin {
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
+
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
     public Zone getZone() { return zone; }
     public void setZone(Zone zone) { this.zone = zone; }
     public List<Expertise> getExpertises() { return expertises; }
+
     public void setExpertises(List<Expertise> expertises) { this.expertises = expertises; }
 }

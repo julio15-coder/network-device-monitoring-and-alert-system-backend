@@ -7,7 +7,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "alert")
 public class Alert {
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -18,7 +17,6 @@ public class Alert {
     private AlertStatus status;
 
     private String severity;
-
     private String message;
 
     @ManyToOne
@@ -29,7 +27,9 @@ public class Alert {
     @JoinColumn(name = "network_admin_id")
     private NetworkAdmin networkAdmin;
 
-    public Alert() {}
+    public Alert() {
+        
+    }
 
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }

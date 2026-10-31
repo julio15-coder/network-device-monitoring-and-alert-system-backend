@@ -10,7 +10,9 @@ import java.util.UUID;
 @Table( name = "expertise")
 public class Expertise {
 
+
     @Id 
+    
     @GeneratedValue (
         strategy = GenerationType.UUID)
     private UUID id;
@@ -19,6 +21,7 @@ public class Expertise {
 
     @ManyToMany(mappedBy = "expertises")
     @JsonIgnore
+    
     private List<NetworkAdmin> networkAdmins = new ArrayList<>();
 
     public Expertise() {}
