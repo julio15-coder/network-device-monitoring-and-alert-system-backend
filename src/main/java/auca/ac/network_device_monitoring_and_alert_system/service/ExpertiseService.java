@@ -10,24 +10,21 @@ import java.util.UUID;
 
 @Service
 public class ExpertiseService {
+
     @Autowired
     private ExpertiseRepository expertiseRepository;
-
 
     public String saveExpertise(Expertise expertise) {
         expertiseRepository.save(expertise);
         return "Expertise saved successfully";
-    
     }
 
     public List<Expertise> getAllExpertises() {
         return expertiseRepository.findAll();
-    
     }
 
     public Optional<Expertise> getExpertiseById(UUID id) {
         return expertiseRepository.findById(id);
-    
     }
 
     public String updateExpertise(UUID id, Expertise expertise) {
@@ -37,21 +34,21 @@ public class ExpertiseService {
             found.setName(expertise.getName());
             expertiseRepository.save(found);
             return "Expertise updated successfully";
-    
         } else {
             return "The expertise with that id does not exist";
-    
         }
-    
     }
-public String deleteExpertise(UUID id) {
+
+    public String deleteExpertise(UUID id) {
         if (expertiseRepository.existsById(id)) {
             expertiseRepository.deleteById(id);
             return "Expertise deleted successfully";
         } else {
             return "The expertise with that id does not exist";
         }
+    }
 
-
+    public List<Expertise> getUnusedExpertises() {
+        return expertiseRepository.findUnusedExpertises();
     }
 }

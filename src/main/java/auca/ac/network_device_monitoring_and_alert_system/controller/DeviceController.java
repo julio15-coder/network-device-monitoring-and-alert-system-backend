@@ -2,13 +2,13 @@ package auca.ac.network_device_monitoring_and_alert_system.controller;
 
 import auca.ac.network_device_monitoring_and_alert_system.model.Device;
 import auca.ac.network_device_monitoring_and_alert_system.service.DeviceService;
+import auca.ac.network_device_monitoring_and_alert_system.service.NetworkAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
-
 import java.util.UUID;
 
 @RestController
@@ -17,6 +17,9 @@ public class DeviceController {
 
     @Autowired
     private DeviceService deviceService;
+
+    @Autowired
+    private NetworkAdminService networkAdminService;
 
     @PostMapping("/save")
     public ResponseEntity<?> saveDevice(@RequestBody Device device) {
@@ -32,6 +35,16 @@ public class DeviceController {
     public ResponseEntity<?> getDevicesByDeviceType(@RequestParam String deviceType) {
         List<Device> devices = deviceService.getDevicesByDeviceType(deviceType);
         return new ResponseEntity<>(devices, HttpStatus.OK);
+    }
+
+    @GetMapping("/of-network-admin/{networkAdminId}")
+    public ResponseEntity<?> getDevicesOfNetworkAdmin(@PathVariable UUID networkAdminId) {
+        if (networkAdminService.getNetworkAdminById(networkAdminId).isEmpty()) {
+            return new ResponseEntity<>("The network admin with that id does not exist", HttpStatus.NOT_FOUND);
+        } else {
+            List<Device> devices = deviceService.getDevicesOfNetworkAdmin(networkAdminId);
+            return new ResponseEntity<>(devices, HttpStatus.OK);
+        }
     }
 
     @GetMapping("/{id}")
@@ -60,10 +73,7 @@ public class DeviceController {
         if (message.equals("Device deleted successfully")) {
             return new ResponseEntity<>(message, HttpStatus.OK);
         } else {
-
-
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
-
         }
     }
 }

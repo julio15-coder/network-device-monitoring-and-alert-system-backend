@@ -54,4 +54,8 @@ public class DeviceService {
     public List<Device> getDevicesByDeviceType(String deviceType) {
         return deviceRepository.findByDeviceTypeIgnoreCaseOrderByHostnameAsc(deviceType);
     }
+
+    public List<Device> getDevicesOfNetworkAdmin(UUID networkAdminId) {
+        return deviceRepository.findDevicesOfNetworkAdmin(networkAdminId);
+    }
 }

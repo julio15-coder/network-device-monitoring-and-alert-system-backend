@@ -15,7 +15,7 @@ public class ZoneService {
     private ZoneRepository zoneRepository;
 
     public String saveZone(Zone zone) {
-    zoneRepository.save(zone);
+        zoneRepository.save(zone);
         return "Zone saved successfully";
     }
 
@@ -31,23 +31,25 @@ public class ZoneService {
         Optional<Zone> existing = zoneRepository.findById(id);
         if (existing.isPresent()) {
             Zone found = existing.get();
-        found.setZoneNumber(zone.getZoneNumber());
+            found.setZoneNumber(zone.getZoneNumber());
             found.setName(zone.getName());
             zoneRepository.save(found);
             return "Zone updated successfully";
         } else {
             return "The zone with that id does not exist";
-
         }
     }
 
-
     public String deleteZone(UUID id) {
         if (zoneRepository.existsById(id)) {
-     zoneRepository.deleteById(id);
+            zoneRepository.deleteById(id);
             return "Zone deleted successfully";
         } else {
             return "The zone with that id does not exist";
         }
+    }
+
+    public List<Zone> getFreeZones() {
+        return zoneRepository.findFreeZones();
     }
 }

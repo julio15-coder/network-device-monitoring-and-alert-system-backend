@@ -5,20 +5,16 @@ import auca.ac.network_device_monitoring_and_alert_system.service.NetworkAdminSe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
 @RestController
-
 @RequestMapping("/api/network-admins")
-
 public class NetworkAdminController {
 
     @Autowired
-
     private NetworkAdminService networkAdminService;
 
     @PostMapping("/save")
@@ -28,15 +24,18 @@ public class NetworkAdminController {
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllNetworkAdmins() {
-    return new ResponseEntity<>(networkAdminService.getAllNetworkAdmins(), HttpStatus.OK);
-    
+        return new ResponseEntity<>(networkAdminService.getAllNetworkAdmins(), HttpStatus.OK);
+    }
 
-}
+    @GetMapping("/by-expertise")
+    public ResponseEntity<?> getNetworkAdminsByExpertise(@RequestParam String name) {
+        List<NetworkAdmin> networkAdmins = networkAdminService.getNetworkAdminsByExpertise(name);
+        return new ResponseEntity<>(networkAdmins, HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getNetworkAdminById(@PathVariable UUID id) {
-
-Optional<NetworkAdmin> networkAdmin = networkAdminService.getNetworkAdminById(id);
+        Optional<NetworkAdmin> networkAdmin = networkAdminService.getNetworkAdminById(id);
         if (networkAdmin.isPresent()) {
             return new ResponseEntity<>(networkAdmin.get(), HttpStatus.OK);
         } else {
@@ -59,10 +58,8 @@ Optional<NetworkAdmin> networkAdmin = networkAdminService.getNetworkAdminById(id
         String message = networkAdminService.deleteNetworkAdmin(id);
         if (message.equals("Network admin deleted successfully")) {
             return new ResponseEntity<>(message, HttpStatus.OK);
-
         } else {
-            
-return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
     }
 }
