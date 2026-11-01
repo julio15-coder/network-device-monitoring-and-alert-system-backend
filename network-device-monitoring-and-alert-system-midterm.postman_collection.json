@@ -1,0 +1,2788 @@
+{
+  "info": {
+    "_postman_id": "90f78e74-d081-46c0-8b9f-85f245f96db3",
+    "name": "network-device-monitoring-and-alert-system-midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58478558",
+    "_collection_link": "https://go.postman.co/collection/58478558-90f78e74-d081-46c0-8b9f-85f245f96db3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "A1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Routing\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 -Expertise get all",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 - Expertise get by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Updating Routing",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Routing Updated\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/update/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "update",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Routing Updated",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Routing Updated\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Restore the original name",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Routing\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/update/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "update",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update with an unknown id (failing case)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Routing\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/update/629d5f77-f45f-4a75-9e97-cec482637bac",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "update",
+            "629d5f77-f45f-4a75-9e97-cec482637bac"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Saving a temporary expertise",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete (success)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/delete/c1ec2ee3-114f-4300-8773-61c28974ffa3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "delete",
+            "c1ec2ee3-114f-4300-8773-61c28974ffa3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete again (failing case)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/delete/c1ec2ee3-114f-4300-8773-61c28974ffa3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "delete",
+            "c1ec2ee3-114f-4300-8773-61c28974ffa3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get the deleted one (failing case)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/c1ec2ee3-114f-4300-8773-61c28974ffa3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "c1ec2ee3-114f-4300-8773-61c28974ffa3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Confirm",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Save zones",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 1, \"name\": \"Core Network\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all zones",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get zone by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/f7cd7802-bd6d-4aba-845b-528dd41c61bf",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "f7cd7802-bd6d-4aba-845b-528dd41c61bf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Updating a zone",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 3, \"name\": \"Office Floor A\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/update/f7cd7802-bd6d-4aba-845b-528dd41c61bf",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "update",
+            "f7cd7802-bd6d-4aba-845b-528dd41c61bf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Updated zone",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/f7cd7802-bd6d-4aba-845b-528dd41c61bf",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "f7cd7802-bd6d-4aba-845b-528dd41c61bf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Zone 404 error",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 3, \"name\": \"Office Floor\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/update/f7cd7802-bd6d-4aba-845b-528dd41c61be",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "update",
+            "f7cd7802-bd6d-4aba-845b-528dd41c61be"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Saving a Temp Zone",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 9, \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deleting Temp Zone (Successful)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 9, \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/delete/0756a59d-073a-40a4-b639-7006129c4a7d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "delete",
+            "0756a59d-073a-40a4-b639-7006129c4a7d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Zone Error 404",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 9, \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/delete/0756a59d-073a-40a4-b639-7006129c4a7d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "delete",
+            "0756a59d-073a-40a4-b639-7006129c4a7d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Getting all zones",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"zoneNumber\": 9, \"name\": \"Temp\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Save devices",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"hostname\": \"office-ap-01\", \"model\": \"Ubiquiti U6 Pro\", \"ipAddress\": \"10.0.4.30\", \"deviceType\": \"Access Point\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get a device",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/47b0f117-b37a-4379-8cea-509c0449c8af",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "47b0f117-b37a-4379-8cea-509c0449c8af"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get a device that doesn't exist",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/47b0f117-b37a-4379-8cea-509c0449c8ae",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "47b0f117-b37a-4379-8cea-509c0449c8ae"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update (app-srv-01)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"hostname\": \"app-srv-01\", \"model\": \"Dell PowerEdge R750\", \"ipAddress\": \"10.0.3.20\", \"deviceType\": \"Server\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/update/47b0f117-b37a-4379-8cea-509c0449c8af",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "update",
+            "47b0f117-b37a-4379-8cea-509c0449c8af"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update (app-srv-01) error",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"hostname\": \"app-srv-01\", \"model\": \"Dell PowerEdge R750\", \"ipAddress\": \"10.0.3.20\", \"deviceType\": \"Server\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/update/47b0f117-b37a-4379-8cea-509c0449c8ae",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "update",
+            "47b0f117-b37a-4379-8cea-509c0449c8ae"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a temp device",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"hostname\": \"temp-dev\", \"model\": \"Test\", \"ipAddress\": \"10.0.9.99\", \"deviceType\": \"Router\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete the temp device",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/delete/fbfc0b34-dd99-4573-b801-d00d826fe5e4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "delete",
+            "fbfc0b34-dd99-4573-b801-d00d826fe5e4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Device list after deleting the temp device",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Saving a NetworkAdmin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Jean\",\r\n  \"lastName\": \"Mugisha\",\r\n  \"email\": \"jean.mugisha@net.rw\",\r\n  \"zone\": { \"id\": \"2849565b-1a70-484b-a2f7-d28f4fc320e8\" },\r\n  \"expertises\": [\r\n    { \"id\": \"629d5f77-f45f-4a75-9e97-cec482637bad\" },\r\n    { \"id\": \"2ef7ae1f-7fa7-4d26-95f5-267de8c5b223\" }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Getting all NetworkAdmin",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get NetworkAdmin by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/b32f5501-6135-4549-9704-1394e207ea6d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "b32f5501-6135-4549-9704-1394e207ea6d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get NetworkAdmin by id (failure)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/b32f5501-6135-4549-9704-1394e207ea6c",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "b32f5501-6135-4549-9704-1394e207ea6c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a NetworkAdmin ",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Patrick\",\r\n  \"lastName\": \"Habimana\",\r\n  \"email\": \"p.habimana@net.rw\",\r\n  \"zone\": { \"id\": \"f7cd7802-bd6d-4aba-845b-528dd41c61bf\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/update/c3b6076d-a836-4782-b31d-e9c1992efb0d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "update",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a NetworkAdmin \"expertises\" still contains Switching",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/c3b6076d-a836-4782-b31d-e9c1992efb0d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a temp net admin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"firstName\": \"Temp\", \"lastName\": \"Admin\", \"email\": \"temp@net.rw\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete the temp net admin",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"firstName\": \"Temp\", \"lastName\": \"Admin\", \"email\": \"temp@net.rw\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/delete/0fe48128-5fc5-417c-aec3-29f711d3b038",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "delete",
+            "0fe48128-5fc5-417c-aec3-29f711d3b038"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete again the temp net admin",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"firstName\": \"Temp\", \"lastName\": \"Admin\", \"email\": \"temp@net.rw\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/delete/0fe48128-5fc5-417c-aec3-29f711d3b038",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "delete",
+            "0fe48128-5fc5-417c-aec3-29f711d3b038"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Saving alerts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"raisedDate\": \"2026-11-15\", \"status\": \"DISMISSED\", \"severity\": \"MEDIUM\", \"message\": \"Duplicate syslog alert\", \"device\": { \"id\": \"b0a21691-46bc-4155-9dea-0a09658e4696\" }, \"networkAdmin\": { \"id\": \"c3b6076d-a836-4782-b31d-e9c1992efb0d\" } }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Getting all alerts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"raisedDate\": \"2026-11-15\", \"status\": \"DISMISSED\", \"severity\": \"MEDIUM\", \"message\": \"Duplicate syslog alert\", \"device\": { \"id\": \"b0a21691-46bc-4155-9dea-0a09658e4696\" }, \"networkAdmin\": { \"id\": \"c3b6076d-a836-4782-b31d-e9c1992efb0d\" } }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "B1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/by-device-type?deviceType=router",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "by-device-type"
+          ],
+          "query": [
+            {
+              "key": "deviceType",
+              "value": "router"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "B2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/by-status?status=OPEN",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "by-status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "OPEN"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "B3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/between?start=2026-10-01&end=2026-10-31",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "between"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-10-01"
+            },
+            {
+              "key": "end",
+              "value": "2026-10-31"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/by-expertise?name=routing",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "by-expertise"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "routing"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "free"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expertises/unused",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "expertises",
+            "unused"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C4",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/of-network-admin/b32f5501-6135-4549-9704-1394e207ea6d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "of-network-admin",
+            "b32f5501-6135-4549-9704-1394e207ea6d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C4 (2)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/devices/of-network-admin/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "devices",
+            "of-network-admin",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-10-15\",\r\n  \"status\": \"OPEN\",\r\n  \"severity\": \"LOW\",\r\n  \"message\": \"Old test alert\",\r\n  \"device\": { \"id\": \"47b0f117-b37a-4379-8cea-509c0449c8af\" },\r\n  \"networkAdmin\": { \"id\": \"0fd0d44a-92d9-425c-a0dc-8e9d992235cf\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-05\",\r\n  \"status\": \"OPEN\",\r\n  \"severity\": \"MEDIUM\",\r\n  \"message\": \"Second alert same day\",\r\n  \"device\": { \"id\": \"d445d6a8-4bc4-479a-aff4-274dfa6fcba7\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1-4",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1-5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2-1",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/a87970b8-7ea3-49c3-aae5-24e001e0f4b9/status?status=RESOLVED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "a87970b8-7ea3-49c3-aae5-24e001e0f4b9",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "RESOLVED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2-2",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/a87970b8-7ea3-49c3-aae5-24e001e0f4b9/status?status=ACKNOWLEDGED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "a87970b8-7ea3-49c3-aae5-24e001e0f4b9",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "ACKNOWLEDGED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2-3",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/a87970b8-7ea3-49c3-aae5-24e001e0f4b9/status?status=RESOLVED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "a87970b8-7ea3-49c3-aae5-24e001e0f4b9",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "RESOLVED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2-4",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/a87970b8-7ea3-49c3-aae5-24e001e0f4b9/status?status=OPEN",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "a87970b8-7ea3-49c3-aae5-24e001e0f4b9",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "OPEN"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2-5",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/00000000-0000-0000-0000-000000000000/status?status=ACKNOWLEDGED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "00000000-0000-0000-0000-000000000000",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "ACKNOWLEDGED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3-1",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/c3b6076d-a836-4782-b31d-e9c1992efb0d/expertises/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d",
+            "expertises",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3-2",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/c3b6076d-a836-4782-b31d-e9c1992efb0d/expertises/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d",
+            "expertises",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3-3",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/c3b6076d-a836-4782-b31d-e9c1992efb0d/expertises/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d",
+            "expertises",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3-4",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/00000000-0000-0000-0000-000000000000/expertises/629d5f77-f45f-4a75-9e97-cec482637bad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "00000000-0000-0000-0000-000000000000",
+            "expertises",
+            "629d5f77-f45f-4a75-9e97-cec482637bad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3-5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/c3b6076d-a836-4782-b31d-e9c1992efb0d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4-1",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/b32f5501-6135-4549-9704-1394e207ea6d/zone?zoneNumber=4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "b32f5501-6135-4549-9704-1394e207ea6d",
+            "zone"
+          ],
+          "query": [
+            {
+              "key": "zoneNumber",
+              "value": "4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4-2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "free"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4-3",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/c3b6076d-a836-4782-b31d-e9c1992efb0d/zone?zoneNumber=4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "c3b6076d-a836-4782-b31d-e9c1992efb0d",
+            "zone"
+          ],
+          "query": [
+            {
+              "key": "zoneNumber",
+              "value": "4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4-4",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/b32f5501-6135-4549-9704-1394e207ea6d/zone?zoneNumber=9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "b32f5501-6135-4549-9704-1394e207ea6d",
+            "zone"
+          ],
+          "query": [
+            {
+              "key": "zoneNumber",
+              "value": "9"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4-5",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/00000000-0000-0000-0000-000000000000/zone?zoneNumber=4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "00000000-0000-0000-0000-000000000000",
+            "zone"
+          ],
+          "query": [
+            {
+              "key": "zoneNumber",
+              "value": "4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4-6",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/network-admins/b32f5501-6135-4549-9704-1394e207ea6d/zone?zoneNumber=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "network-admins",
+            "b32f5501-6135-4549-9704-1394e207ea6d",
+            "zone"
+          ],
+          "query": [
+            {
+              "key": "zoneNumber",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get zone free",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"raisedDate\": \"2026-11-20\",\r\n  \"status\": \"RESOLVED\",\r\n  \"severity\": \"HIGH\",\r\n  \"message\": \"Fan failure\",\r\n  \"device\": { \"id\": \"1c162ea7-986c-4c3f-92ee-6ad0a2799116\" },\r\n  \"networkAdmin\": { \"id\": \"b32f5501-6135-4549-9704-1394e207ea6d\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/zones/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "zones",
+            "free"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1-1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"rootCause\": \"Power failure\", \"notes\": \"UPS battery replaced\", \"downtimeMinutes\": 45 }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/save?alertId=a9cef40c-f210-4465-963a-9b999fd3982c",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "alertId",
+              "value": "a9cef40c-f210-4465-963a-9b999fd3982c"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"rootCause\": \"Fan module failed\", \"notes\": \"Fan tray replaced\", \"downtimeMinutes\": 30 }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/save?alertId=a87970b8-7ea3-49c3-aae5-24e001e0f4b9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "alertId",
+              "value": "a87970b8-7ea3-49c3-aae5-24e001e0f4b9"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1-3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"rootCause\": \"Cable cut\", \"notes\": \"Not fixed yet\", \"downtimeMinutes\": 10 }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/save?alertId=88e50eef-ab16-40d5-8127-86c80636539f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "alertId",
+              "value": "88e50eef-ab16-40d5-8127-86c80636539f"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1-4",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"rootCause\": \"Power failure\", \"notes\": \"UPS battery replaced\", \"downtimeMinutes\": 45 }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/save?alertId=00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "alertId",
+              "value": "00000000-0000-0000-0000-000000000000"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E2-1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/device/10.0.1.15",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "device",
+            "10.0.1.15"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E2-2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/device/10.0.4.30",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "device",
+            "10.0.4.30"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E3-1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/delete/a9cef40c-f210-4465-963a-9b999fd3982c",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "delete",
+            "a9cef40c-f210-4465-963a-9b999fd3982c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E3-2",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/delete/2aaceda9-1842-43f9-857d-68b39be296b3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "delete",
+            "2aaceda9-1842-43f9-857d-68b39be296b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E3-3",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/incident-logs/delete/2aaceda9-1842-43f9-857d-68b39be296b3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "incident-logs",
+            "delete",
+            "2aaceda9-1842-43f9-857d-68b39be296b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "F1-1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/stats/by-status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "stats",
+            "by-status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "F2-1",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/cancel-day?networkAdminId=b32f5501-6135-4549-9704-1394e207ea6d&date=2026-12-01",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "networkAdminId",
+              "value": "b32f5501-6135-4549-9704-1394e207ea6d"
+            },
+            {
+              "key": "date",
+              "value": "2026-12-01"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "F2-2",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/cancel-day?networkAdminId=b32f5501-6135-4549-9704-1394e207ea6d&date=2026-10-20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "networkAdminId",
+              "value": "b32f5501-6135-4549-9704-1394e207ea6d"
+            },
+            {
+              "key": "date",
+              "value": "2026-10-20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bonus 1: Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/dashboard/summary",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bonus 2: Alerts page by page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/page?page=0&size=5&sort=raisedDate,desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            },
+            {
+              "key": "sort",
+              "value": "raisedDate,desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "F2-1 After the Bonuses",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/alerts/cancel-day?networkAdminId=b32f5501-6135-4549-9704-1394e207ea6d&date=2026-12-01",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "alerts",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "networkAdminId",
+              "value": "b32f5501-6135-4549-9704-1394e207ea6d"
+            },
+            {
+              "key": "date",
+              "value": "2026-12-01"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
