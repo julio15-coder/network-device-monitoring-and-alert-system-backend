@@ -9,7 +9,10 @@ import auca.ac.network_device_monitoring_and_alert_system.repository.DeviceRepos
 import auca.ac.network_device_monitoring_and_alert_system.repository.IncidentLogRepository;
 import auca.ac.network_device_monitoring_and_alert_system.repository.NetworkAdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -128,9 +131,14 @@ public class AlertService {
         return alertRepository.countAlertsByStatus();
     }
 
+    @Transactional
     public String cancelDay(UUID networkAdminId, LocalDate date) {
         int count = alertRepository.cancelDay(networkAdminId, date, AlertStatus.DISMISSED, AlertStatus.RESOLVED);
         return count + " alerts cancelled";
+    }
+
+    public Page<Alert> getAlertsPage(Pageable pageable) {
+        return alertRepository.findAll(pageable);
     }
 
     private Optional<Device> findDevice(Alert alert) {

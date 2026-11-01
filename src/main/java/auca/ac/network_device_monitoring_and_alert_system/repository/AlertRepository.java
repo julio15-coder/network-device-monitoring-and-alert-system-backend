@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -26,10 +25,13 @@ public interface AlertRepository extends JpaRepository<Alert, UUID> {
     List<Object[]> countAlertsByStatus();
 
     @Modifying
-    @Transactional
     @Query("UPDATE Alert a SET a.status = :dismissed WHERE a.networkAdmin.id = :networkAdminId AND a.raisedDate = :date AND a.status <> :resolved")
     int cancelDay(@Param("networkAdminId") UUID networkAdminId,
                   @Param("date") LocalDate date,
                   @Param("dismissed") AlertStatus dismissed,
                   @Param("resolved") AlertStatus resolved);
+
+    long countByRaisedDate(LocalDate raisedDate);
+
+    long countByStatus(AlertStatus status);
 }

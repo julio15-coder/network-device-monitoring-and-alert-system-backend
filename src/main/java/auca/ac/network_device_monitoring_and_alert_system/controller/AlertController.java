@@ -4,6 +4,10 @@ import auca.ac.network_device_monitoring_and_alert_system.model.Alert;
 import auca.ac.network_device_monitoring_and_alert_system.model.AlertStatus;
 import auca.ac.network_device_monitoring_and_alert_system.service.AlertService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +40,19 @@ public class AlertController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllAlerts() {
         return new ResponseEntity<>(alertService.getAllAlerts(), HttpStatus.OK);
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<?> getAlertsPage(@RequestParam int page, @RequestParam int size, @RequestParam String sort) {
+        String[] sortParts = sort.split(",");
+        String field = sortParts[0];
+        Sort.Direction direction = Sort.Direction.ASC;
+        if (sortParts.length > 1 && sortParts[1].equalsIgnoreCase("desc")) {
+            direction = Sort.Direction.DESC;
+        }
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, field));
+        Page<Alert> alerts = alertService.getAlertsPage(pageable);
+        return new ResponseEntity<>(alerts, HttpStatus.OK);
     }
 
     @GetMapping("/by-status")
