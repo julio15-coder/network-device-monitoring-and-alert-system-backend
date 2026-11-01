@@ -9,6 +9,7 @@ import auca.ac.network_device_monitoring_and_alert_system.repository.DeviceRepos
 import auca.ac.network_device_monitoring_and_alert_system.repository.NetworkAdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -20,11 +21,12 @@ public class AlertService {
     private AlertRepository alertRepository;
 
     @Autowired
-private DeviceRepository deviceRepository;
+    private DeviceRepository deviceRepository;
 
     @Autowired
     private NetworkAdminRepository networkAdminRepository;
-public String saveAlert(Alert alert) {
+
+    public String saveAlert(Alert alert) {
         Optional<Device> device = findDevice(alert);
         if (device.isEmpty()) {
             return "The device with that id does not exist";
@@ -84,6 +86,10 @@ public String saveAlert(Alert alert) {
         return alertRepository.findByStatusOrderByRaisedDateAsc(status);
     }
 
+    public List<Alert> getAlertsBetween(LocalDate start, LocalDate end) {
+        return alertRepository.findByRaisedDateBetweenOrderByRaisedDateAsc(start, end);
+    }
+
     private Optional<Device> findDevice(Alert alert) {
         if (alert.getDevice() == null || alert.getDevice().getId() == null) {
             return Optional.empty();
@@ -92,16 +98,9 @@ public String saveAlert(Alert alert) {
     }
 
     private Optional<NetworkAdmin> findNetworkAdmin(Alert alert) {
-        if (alert.getNetworkAdmin() == null || alert.getNetworkAdmin().getId() == null)
-            
-            {
+        if (alert.getNetworkAdmin() == null || alert.getNetworkAdmin().getId() == null) {
             return Optional.empty();
-        
         }
-        
         return networkAdminRepository.findById(alert.getNetworkAdmin().getId());
     }
-
-
-
 }
