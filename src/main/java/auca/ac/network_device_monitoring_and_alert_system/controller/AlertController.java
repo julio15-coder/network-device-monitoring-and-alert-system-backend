@@ -89,6 +89,8 @@ public class AlertController {
         String message = alertService.deleteAlert(id);
         if (message.equals("Alert deleted successfully")) {
             return new ResponseEntity<>(message, HttpStatus.OK);
+        } else if (message.equals("That alert has incident logs, delete them first")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
         } else {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }

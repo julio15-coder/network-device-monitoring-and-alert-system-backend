@@ -6,6 +6,7 @@ import auca.ac.network_device_monitoring_and_alert_system.model.Device;
 import auca.ac.network_device_monitoring_and_alert_system.model.NetworkAdmin;
 import auca.ac.network_device_monitoring_and_alert_system.repository.AlertRepository;
 import auca.ac.network_device_monitoring_and_alert_system.repository.DeviceRepository;
+import auca.ac.network_device_monitoring_and_alert_system.repository.IncidentLogRepository;
 import auca.ac.network_device_monitoring_and_alert_system.repository.NetworkAdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,9 @@ public class AlertService {
 
     @Autowired
     private NetworkAdminRepository networkAdminRepository;
+
+    @Autowired
+    private IncidentLogRepository incidentLogRepository;
 
     public String saveAlert(Alert alert) {
         Optional<Device> device = findDevice(alert);
@@ -101,12 +105,15 @@ public class AlertService {
     }
 
     public String deleteAlert(UUID id) {
-        if (alertRepository.existsById(id)) {
-            alertRepository.deleteById(id);
-            return "Alert deleted successfully";
-        } else {
+        Optional<Alert> existing = alertRepository.findById(id);
+        if (existing.isEmpty()) {
             return "The alert with that id does not exist";
         }
+        if (incidentLogRepository.existsByAlert(existing.get())) {
+            return "That alert has incident logs, delete them first";
+        }
+        alertRepository.deleteById(id);
+        return "Alert deleted successfully";
     }
 
     public List<Alert> getAlertsByStatus(AlertStatus status) {
