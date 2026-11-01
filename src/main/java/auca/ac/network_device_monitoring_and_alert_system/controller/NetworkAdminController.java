@@ -53,6 +53,30 @@ public class NetworkAdminController {
         }
     }
 
+    @PutMapping("/{networkAdminId}/expertises/{expertiseId}")
+    public ResponseEntity<?> addExpertiseToNetworkAdmin(@PathVariable UUID networkAdminId, @PathVariable UUID expertiseId) {
+        String message = networkAdminService.addExpertiseToNetworkAdmin(networkAdminId, expertiseId);
+        if (message.equals("Expertise added to the network admin")) {
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        } else if (message.equals("The network admin already has that expertise")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PatchMapping("/{networkAdminId}/zone")
+    public ResponseEntity<?> changeZone(@PathVariable UUID networkAdminId, @RequestParam int zoneNumber) {
+        String message = networkAdminService.changeZone(networkAdminId, zoneNumber);
+        if (message.equals("Zone changed successfully")) {
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        } else if (message.equals("That zone is taken by another network admin")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteNetworkAdmin(@PathVariable UUID id) {
         String message = networkAdminService.deleteNetworkAdmin(id);

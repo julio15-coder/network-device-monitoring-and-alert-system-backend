@@ -24,6 +24,10 @@ public class AlertController {
         String message = alertService.saveAlert(alert);
         if (message.equals("Alert saved successfully")) {
             return new ResponseEntity<>(message, HttpStatus.CREATED);
+        } else if (message.equals("Alert date cannot be in the past")) {
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        } else if (message.equals("Network admin is already assigned an alert on that date")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
         } else {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
@@ -65,6 +69,18 @@ public class AlertController {
             return new ResponseEntity<>(message, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<?> updateAlertStatus(@PathVariable UUID id, @RequestParam AlertStatus status) {
+        String message = alertService.updateAlertStatus(id, status);
+        if (message.equals("Alert status updated successfully")) {
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        } else if (message.equals("The alert with that id does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
     }
 

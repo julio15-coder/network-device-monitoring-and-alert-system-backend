@@ -35,8 +35,15 @@ public class AlertService {
         if (networkAdmin.isEmpty()) {
             return "The network admin with that id does not exist";
         }
+        if (alert.getRaisedDate().isBefore(LocalDate.now())) {
+            return "Alert date cannot be in the past";
+        }
+        if (alertRepository.existsByNetworkAdminAndRaisedDateAndStatusNot(networkAdmin.get(), alert.getRaisedDate(), AlertStatus.DISMISSED)) {
+            return "Network admin is already assigned an alert on that date";
+        }
         alert.setDevice(device.get());
         alert.setNetworkAdmin(networkAdmin.get());
+        alert.setStatus(AlertStatus.OPEN);
         alertRepository.save(alert);
         return "Alert saved successfully";
     }
@@ -64,13 +71,33 @@ public class AlertService {
         }
         Alert found = existing.get();
         found.setRaisedDate(alert.getRaisedDate());
-        found.setStatus(alert.getStatus());
         found.setSeverity(alert.getSeverity());
         found.setMessage(alert.getMessage());
         found.setDevice(device.get());
         found.setNetworkAdmin(networkAdmin.get());
         alertRepository.save(found);
         return "Alert updated successfully";
+    }
+
+    public String updateAlertStatus(UUID id, AlertStatus newStatus) {
+        Optional<Alert> existing = alertRepository.findById(id);
+        if (existing.isEmpty()) {
+            return "The alert with that id does not exist";
+        }
+        Alert found = existing.get();
+        AlertStatus currentStatus = found.getStatus();
+        boolean allowed = false;
+        if (currentStatus == AlertStatus.OPEN) {
+            allowed = newStatus == AlertStatus.ACKNOWLEDGED || newStatus == AlertStatus.DISMISSED;
+        } else if (currentStatus == AlertStatus.ACKNOWLEDGED) {
+            allowed = newStatus == AlertStatus.RESOLVED || newStatus == AlertStatus.DISMISSED;
+        }
+        if (!allowed) {
+            return "Cannot change status from " + currentStatus + " to " + newStatus;
+        }
+        found.setStatus(newStatus);
+        alertRepository.save(found);
+        return "Alert status updated successfully";
     }
 
     public String deleteAlert(UUID id) {
