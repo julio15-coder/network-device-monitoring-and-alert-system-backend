@@ -52,6 +52,19 @@ public class AlertController {
         return new ResponseEntity<>(alerts, HttpStatus.OK);
     }
 
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<?> getAlertCountsByStatus() {
+        List<Object[]> counts = alertService.getAlertCountsByStatus();
+        return new ResponseEntity<>(counts, HttpStatus.OK);
+    }
+
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<?> cancelDay(@RequestParam UUID networkAdminId, @RequestParam String date) {
+        LocalDate day = LocalDate.parse(date);
+        String message = alertService.cancelDay(networkAdminId, day);
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getAlertById(@PathVariable UUID id) {
         Optional<Alert> alert = alertService.getAlertById(id);

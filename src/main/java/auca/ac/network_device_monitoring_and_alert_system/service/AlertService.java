@@ -124,6 +124,15 @@ public class AlertService {
         return alertRepository.findByRaisedDateBetweenOrderByRaisedDateAsc(start, end);
     }
 
+    public List<Object[]> getAlertCountsByStatus() {
+        return alertRepository.countAlertsByStatus();
+    }
+
+    public String cancelDay(UUID networkAdminId, LocalDate date) {
+        int count = alertRepository.cancelDay(networkAdminId, date, AlertStatus.DISMISSED, AlertStatus.RESOLVED);
+        return count + " alerts cancelled";
+    }
+
     private Optional<Device> findDevice(Alert alert) {
         if (alert.getDevice() == null || alert.getDevice().getId() == null) {
             return Optional.empty();
